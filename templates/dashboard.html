@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Dashboard</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+  <div id="db_select" class="container">
+    <span>Select a database. eICU or MIMIC: </span>
+    <span>
+      <select id="database">
+        <option value="mimic">MIMIC-3</option>
+        <option value="eicu">eICU</option>
+      </select>
+    </span>
+  </div>
+
+
+  <div id="data_select" class="container">
+    <table class="table table-dark">
+      <h4>Choose the table needed you want to preprocess</h4>
+      <tbody>
+        <tr>
+          <td><input type="checkbox" value="chart"> chartevent.csv</td>
+          <td><input type="checkbox" value="vp"> vitalperiodic.csv</td>
+          <td><input type="checkbox" value="lab"> lab.csv</td>
+        </tr>
+        <tr>
+          <td><select>
+              <option value="1">X</option>
+              <option value="2">Y</option>
+              <option value="3">Z</option>
+            </select></td>
+          <td>
+            <select>
+              <option value="1">X</option>
+              <option value="2">Y</option>
+              <option value="3">Z</option>
+            </select>
+
+          </td>
+          <td>
+            <select>
+              <option value="1">X</option>
+              <option value="2">Y</option>
+              <option value="3">Z</option>
+            </select>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+
+  <div id="custom-q" class="container">
+    <h4>Do you need any further customization to the data?</h4>
+    <div class="row">
+      <div class="btn col-sm-6" style="background-color: green; color: white;">NO, process it</div>
+      <div class="btn col-sm-6" style="background-color: blue; color: white;">YES, continue</div>
+    </div>
+  </div>
+
+  <div id="custom" class="customization">
+    <table>
+      <h4>C</h4>
+    </table>
+  </div>
+
+
+
+</body>
+
+</html>
