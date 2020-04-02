@@ -5,10 +5,10 @@ $("#optybtn").click(function(){
 
 });
 
-$("#optnbtn").click(function(){
-    $('#more-options').hide();
+//$("#optnbtn").click(function(){
+  //  $('#more-options').hide();
     //$('#more-options').removeAttr('required');
     //$('#more-options').removeAttr('data-error');
-});
+//});
 
 //$("#optnbtn").trigger("click")
