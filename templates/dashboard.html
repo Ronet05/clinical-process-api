@@ -12,82 +12,91 @@
 
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <script type="text/javascript"
-         src="{{ url_for('static', filename='dashunlock.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/dashunlock.js') }}"></script>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/dashboard.css') }}">
 </head>
 
 <body>
   <div class="container">
-  <form method="POST" id="param_collect">
-    
-    <!--grouping for database-->
-    <div id="db_select" class="form-group">
-      <span>Select a database. eICU or MIMIC: </span>
-      <span>
-        <select id="database">
-          <option value="mimic">MIMIC-3</option>
-          <option value="eicu">eICU</option>
-        </select>
-      </span>
-    </div>
+    <form method="POST" id="param_collect">
 
-
-    <h4>Choose all the required parameters to be collected</h4>
-    <!--grouping for options - initial parameters-->
-    
-    <div class="form-group">
-      <label for="paramcollopt">Select all required options. (use Ctrl or drag-click to select multiple options)</label>
-      <select multiple class="form-control" id="paramcollopt">
-        <option>vitals</option>
-        <option>blood gases</option>
-        <option>labs</option>
-        <option>nursing events</option>
-        <option>chart events</option>
-        <option>medication/drugs</option>
-        <option>patient details</option>
-      </select>
-
-    </div>
-    
-    <div id="custom-q" class="container">
-      <h4>Do you need any further customization to the data?</h4>
-      <div class="row">
-        <div class="btn col-sm-6" style="background-color: green; color: white;" value="no">NO, process it</div>
-        <div class="btn col-sm-6" style="background-color: blue; color: white;" value="yes">YES, continue</div>
+      <!--grouping for database-->
+      <div id="db_select" class="form-group">
+        <span>Select a database. eICU or MIMIC: </span>
+        <span>
+          <select id="database">
+            <option value="mimic">MIMIC-3</option>
+            <option value="eicu">eICU</option>
+          </select>
+        </span>
       </div>
-    </div>
-
-    <div class="form-group" class="more-options">
-      <h4>List of available customization options:</h4>
-    <table class="table table-dark">
-      <thead>
-        <th>Click to apply</th>
-        <th>Option</th>
-        <th>Description</th>
-      </thead>
-      <tbody>
-        <tr>
-          <td><input type="checkbox" value="1"></td>
-          <td>ICD9 Codes</td>
-          <td>Extract relevant ICD9 Codes from the data</td>
-        </tr>
-        <tr>
-          <td><input type="checkbox" value="2"></td>
-          <td>Age</td>
-          <td>Filter based on age of patients</td>
-        </tr>
-      </tbody>
-    </table>
 
 
+      <h4>Choose all the required parameters to be collected</h4>
+      <!--grouping for options - initial parameters-->
 
-    </div>
-  
-  
-  
-  
-  </form>
-</div>
+      <div class="form-group">
+        <label for="paramcollopt">Select all required options. (use Ctrl or drag-click to select multiple
+          options)</label>
+        <select multiple class="form-control" id="paramcollopt">
+          <option>vitals</option>
+          <option>blood gases</option>
+          <option>labs</option>
+          <option>nursing events</option>
+          <option>chart events</option>
+          <option>medication/drugs</option>
+          <option>patient details</option>
+        </select>
+
+      </div>
+      
+      <h4>Do you need any further customization to the data?</h4>
+      <div class="form-group" id="custom-q">
+        <div class="row">
+
+          <div class="col-sm-6">
+            <input type="button" value="no" class="form-control" id="optnbtn">
+          </div>
+          
+          <div class="col-sm-6">
+            <input type="button" value="yes" class="form-control" id="optybtn">
+          </div>
+
+        </div>
+      </div>
+
+      <!--More options for customization-->
+      <div class="form-group" id="more-options">
+        <h4>List of available customization options:</h4>
+        <table class="table table-dark">
+          <thead>
+            <th>Click to apply</th>
+            <th>Option</th>
+            <th>Description</th>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox" value="1"></td>
+              <td>ICD9 Codes</td>
+              <td>Extract relevant ICD9 Codes from the data</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" value="2"></td>
+              <td>Age</td>
+              <td>Filter based on age of patients</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+
+      </div>
+
+
+
+
+    </form>
+  </div>
 
 
 </body>
