@@ -25,7 +25,26 @@
       </select>
     </span>
   </div>
+  <div class="container">
+    <form method="POST" id = "param_collect">
+      <h4>Choose all the required parameters to be collected</h4>
+      
+    <div class="form-group">
+      <label for="paramcollopt">Select all required options. (use Ctrl or drag-click to select multiple options)</label>
+      <select multiple class="form-control" id="paramcollopt">
+        <option>vitals</option>
+        <option>blood gases</option>
+        <option>labs</option>
+        <option>nursing events</option>
+        <option>chart events</option>
+        <option>medication/drugs</option>
+        <option>patient details</option>
+      </select>
 
+    </div>
+
+    </form>
+  </div>
 
   <div id="data_select" class="container">
     <table class="table table-dark">
