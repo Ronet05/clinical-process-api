@@ -6,3 +6,11 @@
     display: none;
     justify-content: center;
 }
+
+#paramcollopt{
+    height: 150px;
+}
+
+#feature-select-div{
+    display: none;
+}
