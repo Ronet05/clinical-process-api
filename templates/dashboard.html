@@ -43,13 +43,13 @@
         <label for="paramcollopt">Select all required options. (use Ctrl or drag-click to select multiple
           options)</label>
         <select multiple class="form-control" id="paramcollopt">
-          <option>vitals</option>
-          <option>blood gases</option>
-          <option>labs</option>
-          <option>nursing events</option>
-          <option>chart events</option>
-          <option>medication/drugs</option>
-          <option>patient details</option>
+          <option value="vitals">vitals</option>
+          <option value="bg">blood gases</option>
+          <option value="labs">labs</option>
+          <option value="nurseeve">nursing events</option>
+          <option value="charteve">chart events</option>
+          <option value="med">medication/drugs</option>
+          <option value="patient">patient details</option>
         </select>
       </div>
      
@@ -71,8 +71,7 @@
       </div>
       
       <div class="form-group" id="feature-select-div">
-        <h4>Choose individual table features</h4>
-        <div id="table-features"></div>
+        
       </div>
 
       <!--More options for customization-->
