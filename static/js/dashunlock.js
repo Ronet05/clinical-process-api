@@ -1,9 +1,9 @@
-function getSelectedOptions(sel){
+function getSelectedOptions(sel) {
     var opts = [], opt;
-    for (var i =0, len = sel.options.length; i<len; i++){
+    for (var i = 0, len = sel.options.length; i < len; i++) {
         opt = sel.options[i];
 
-        if(opt.selected){
+        if (opt.selected) {
             opts.push(opt);
 
             /**if(fn){
@@ -16,9 +16,9 @@ function getSelectedOptions(sel){
 }
 
 
-function createSelect(option_list, select){
+function createSelect(option_list, select) {
     var option;
-    for (var i =0; i<option_list.length; i++){
+    for (var i = 0; i < option_list.length; i++) {
         option = document.createElement('option');
         option.value = option_list[i];
         option.text = option_list[i];
@@ -27,36 +27,36 @@ function createSelect(option_list, select){
 }
 
 
-document.getElementById("paramcollopt").onchange = function(e){
+document.getElementById("paramcollopt").onchange = function (e) {
     var display = document.getElementById("feature-select-div");
     display.innerHTML = "";
-    
+
     var labs_options = ['HCO3', 'FiO2', 'pH', 'AST', 'etc'];
     var vitals_options = ['HR', 'O2Sat', 'Temp', 'SBP'];
-    var temp_list = [labs_options,vitals_options];
-    
-    options = getSelectedOptions(this);
-    
-    for (var i=0; i <options.length;i++){
+    var temp_list = [labs_options, vitals_options];
 
-        display.innerHTML += '<h4> Test '+ options[i].text + ' element </h4>';
+    options = getSelectedOptions(this);
+
+    for (var i = 0; i < options.length; i++) {
+
+        display.innerHTML += '<h4> Test ' + options[i].text + ' element </h4>';
 
         var sel = document.createElement('select');
         sel.multiple = true;
-   
+
         //var option;
-        if(i==0){
+        if (i == 0) {
             createSelect(labs_options, sel);
         }
-        else{
+        else {
             createSelect(vitals_options, sel);
         }
         display.appendChild(sel);
-        display.innerHTML +="<br/>";
-        
+        display.innerHTML += "<br/>";
+
     }
-    
-    
+
+
     //var str = display.innerHTML.slice(0,-2);
     //display.innerHTML = str;
 }
