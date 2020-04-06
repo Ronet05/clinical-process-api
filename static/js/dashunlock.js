@@ -15,15 +15,6 @@ function getSelectedOptions(sel){
     return opts;
 }
 
-/**function callback(opt){
-    var display = document.getElementById("feature-select-div");
-    var select = document.createElement('select');
-    var option = opt;
-
-    
-    
-    display.innerHTML +=opt.value+', ';
-}*/
 
 function createSelect(option_list, select){
     var option;
@@ -38,7 +29,8 @@ function createSelect(option_list, select){
 
 document.getElementById("paramcollopt").onchange = function(e){
     var display = document.getElementById("feature-select-div");
-    display.innerHTML += "<h4> Test h4 element</h4>";
+    display.innerHTML = "";
+    
     var labs_options = ['HCO3', 'FiO2', 'pH', 'AST', 'etc'];
     var vitals_options = ['HR', 'O2Sat', 'Temp', 'SBP'];
     var temp_list = [labs_options,vitals_options];
@@ -47,8 +39,11 @@ document.getElementById("paramcollopt").onchange = function(e){
     
     for (var i=0; i <options.length;i++){
 
+        display.innerHTML += '<h4> Test '+ options[i].text + ' element </h4>';
+
         var sel = document.createElement('select');
-        //select.setAttribute("multiple");
+        sel.multiple = true;
+   
         //var option;
         if(i==0){
             createSelect(labs_options, sel);
@@ -57,9 +52,10 @@ document.getElementById("paramcollopt").onchange = function(e){
             createSelect(vitals_options, sel);
         }
         display.appendChild(sel);
-        
+        display.innerHTML +="<br/>";
         
     }
+    
     
     //var str = display.innerHTML.slice(0,-2);
     //display.innerHTML = str;
@@ -68,9 +64,13 @@ document.getElementById("paramcollopt").onchange = function(e){
 
 
 
+
+
+
 $("#optybtn").click(function () {
+
     $("#feature-select-div").show();
-    
+    //$("#opts").children.prop('disabled', true);
     $("#submit-btn").hide();
 });
 
