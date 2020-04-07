@@ -129,12 +129,40 @@
 
     </form>
   </div>
-  
-  <script id="helper" type="text/javascript" data-col_info = {{cols|tojson}} src="{{ url_for('static', filename='js/dashunlock.js') }}"></script>
+
+  <script id="helper" type="text/javascript" src="{{ url_for('static', filename='js/dashunlock.js') }}"></script>
   <script>
-    var temp = {{cols|tojson}};
-    for (x in temp){
-      console.log(x);
+    
+    var cols = {{cols|tojson}};
+
+    document.getElementById("paramcollopt_eicu").onchange = function (e) {
+
+      var display = document.getElementById("feature-select-div");
+      display.innerHTML = "";
+
+      options = getSelectedOptions(this);
+
+      for (var i = 0; i < options.length; i++) {
+
+        for (x in cols) {
+
+          if (x == options[i].value) {
+            display.innerHTML += '<h4> Test ' + options[i].text + ' element </h4>';
+
+            var sel = document.createElement('select');
+            sel.multiple = true;
+
+            createSelect(Array.from(cols[x]), sel);
+
+            display.appendChild(sel);
+            display.innerHTML += "<br/>";
+
+          }
+
+        }
+
+      }
+
     }
   </script>
 

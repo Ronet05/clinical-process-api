@@ -27,58 +27,6 @@ function createSelect(option_list, select) {
 }
 
 
-document.getElementById("paramcollopt_eicu").onchange = function (e) {
-    var cols = document.getElementById("helper").getAttribute("data-col_info");
-    //document.write(cols);
-
-    var display = document.getElementById("feature-select-div");
-    display.innerHTML = "";
-
-    /**var labs_options = ['HCO3', 'FiO2', 'pH', 'AST', 'etc'];
-    var vitals_options = ['HR', 'O2Sat', 'Temp', 'SBP'];
-    var temp_list = [labs_options, vitals_options];**/
-
-    options = getSelectedOptions(this);
-    for (x in cols){
-        document.write(cols[x][0]);
-    }
-
-
-    for (var i = 0; i < options.length; i++) {
-        for (x in cols) {
-            if (x == options[i].value) {
-                display.innerHTML += '<h4> Test ' + options[i].text + ' element </h4>';
-
-                var sel = document.createElement('select');
-                sel.multiple = true;
-
-                createSelect(Array.from(cols[x]), sel);
-
-                //var option;
-                /**if (i == 0) {
-                    createSelect(labs_options, sel);
-                }
-                else {
-                    createSelect(vitals_options, sel);
-                }*/
-
-                display.appendChild(sel);
-                display.innerHTML += "<br/>";
-
-            }
-
-        }
-
-
-
-    }
-
-
-
-
-
-}
-
 
 $("#database").change(function () {
     var selectedDB = $(this).children("option:selected").val();
@@ -97,7 +45,6 @@ $("#database").change(function () {
 
 
 $("#optybtn").click(function () {
-
     $("#feature-select-div").show();
     //$("#opts").children.prop('disabled', true);
     $("#submit-btn").hide();
@@ -111,6 +58,4 @@ $("#optnbtn").click(function () {
     $("#more-options").hide();
 
 });
-
-
 
