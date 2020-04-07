@@ -24,11 +24,11 @@
 
       <!--grouping for database-->
       <div id="db_select" class="form-group">
-        <span>Select a database. eICU or MIMIC: </span>
+        <span>Select a database. eICU or MIMIC-III: </span>
         <span>
           <select id="database">
+            <option value="eiuc">eICU</option>
             <option value="mimic">MIMIC-3</option>
-            <option value="eicu">eICU</option>
           </select>
         </span>
       </div>
@@ -37,21 +37,43 @@
       <h4>Choose all the required parameters to be collected</h4>
       <!--grouping for options - initial parameters-->
 
-      <div class="form-group" id="opts">
+      <div class="form-group">
 
 
-        <label for="paramcollopt">Select all required options. (use Ctrl or drag-click to select multiple
-          options)</label>
-        <select multiple class="form-control" id="paramcollopt">
-          <option value="vitals">vitals</option>
-          <option value="bg">blood gases</option>
-          <option value="labs">labs</option>
-          <option value="nurseeve">nursing events</option>
-          <option value="charteve">chart events</option>
-          <option value="med">medication/drugs</option>
-          <option value="patient">patient details</option>
-        </select>
+        <div id="opts-eicu">
+          <label for="paramcollopt_eicu">Select all required options. (use Ctrl or drag-click to select multiple
+            options)</label>
+          <select multiple class="form-control" id="paramcollopt_eicu">
+            <option value="vitals">vitals</option>
+
+            <option value="labs">labs</option>
+            <option value="nurseeve">nursing events</option>
+            <!--<option value="charteve">chart events</option>
+            <option value="bg">blood gases</option>
+            <option value="patient">patient details</option>-->
+            <option value="med">medication/drugs</option>
+
+          </select>
+        </div>
+
+        <div id="opts-mimic">
+          <label for="paramcollopt_mimic">Select all required options. (use Ctrl or drag-click to select multiple
+            options)</label>
+          <select multiple class="form-control" id="paramcollopt_mimic">
+            <option value="vitals">vitals</option>
+            <option value="bg">blood gases</option>
+            <option value="labs">labs</option>
+            <option value="nurseeve">nursing events</option>
+            <option value="charteve">chart events</option>
+            <option value="med">medication/drugs</option>
+            <option value="patient">patient details</option>
+          </select>
+
+        </div>
+
+
       </div>
+
 
 
 
@@ -107,7 +129,15 @@
 
     </form>
   </div>
-  <script type="text/javascript" src="{{ url_for('static', filename='js/dashunlock.js') }}"></script>
+  
+  <script id="helper" type="text/javascript" data-col_info = {{cols|tojson}} src="{{ url_for('static', filename='js/dashunlock.js') }}"></script>
+  <script>
+    var temp = {{cols|tojson}};
+    for (x in temp){
+      console.log(x);
+    }
+  </script>
+
 </body>
 
 </html>

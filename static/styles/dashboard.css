@@ -7,8 +7,14 @@
     justify-content: center;
 }
 
-#paramcollopt{
+#opts-mimic{
     height: 150px;
+    display: none;
+}
+
+#opts-eicu{
+    height: 150px;
+    display: block;
 }
 
 #feature-select-div{
