@@ -24,8 +24,8 @@
 
       <!--grouping for database-->
       <div id="db_select" class="form-group">
-        <span>Select a database. eICU or MIMIC-III: </span>
-        <span>
+        <span class="db_select_style">Select a database. eICU or MIMIC-III: </span>
+        <span class="db_select_style">
           <select id="database">
             <option value="eiuc">eICU</option>
             <option value="mimic">MIMIC-3</option>
@@ -132,7 +132,7 @@
 
   <script id="helper" type="text/javascript" src="{{ url_for('static', filename='js/dashunlock.js') }}"></script>
   <script>
-    
+
     var cols = {{cols|tojson}};
 
     document.getElementById("paramcollopt_eicu").onchange = function (e) {
@@ -147,10 +147,12 @@
         for (x in cols) {
 
           if (x == options[i].value) {
-            display.innerHTML += '<h4> Test ' + options[i].text + ' element </h4>';
+            display.innerHTML += '<h4> Choose features from ' + options[i].text + ' table </h4>';
 
             var sel = document.createElement('select');
             sel.multiple = true;
+            sel.style['height'] = "250px";
+            sel.style['width'] = "100%";
 
             createSelect(Array.from(cols[x]), sel);
 
@@ -164,6 +166,8 @@
       }
 
     }
+
+
   </script>
 
 </body>

@@ -4,7 +4,8 @@
 
 #submit-btn{
     display: none;
-    justify-content: center;
+    text-align: center;
+    width: 50%;
 }
 
 #opts-mimic{
@@ -19,4 +20,9 @@
 
 #feature-select-div{
     display: none;
+}
+
+.db_select_style{
+  padding-top: 10%;
+
 }

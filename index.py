@@ -15,3 +15,5 @@ def form_input():
     return render_template('dashboard.html', cols = cols_in_json)
 
 
+@app.route('/dashboard/showhead', methods = ["GET", "POST"])
+def showhead():

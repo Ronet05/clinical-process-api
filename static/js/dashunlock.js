@@ -47,7 +47,7 @@ $("#database").change(function () {
 $("#optybtn").click(function () {
     $("#feature-select-div").show();
     //$("#opts").children.prop('disabled', true);
-    $("#submit-btn").hide();
+    $("#submit-btn").show();
 });
 
 
@@ -58,4 +58,3 @@ $("#optnbtn").click(function () {
     $("#more-options").hide();
 
 });
-
