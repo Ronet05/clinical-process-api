@@ -7,20 +7,23 @@ import json
 class eicu_parser:
 
     def vitals_vars(self):
-        df = pd.read_csv("vitalPeriodic.csv")
-        cols = df.columns.tolist()
-        cols = cols[3:]
-        del df
+        cols =[]
+        with open('vitalPeriodic.csv') as csvfile:
+            file = csv.reader(csvfile)
+            for row in file:
+                for i in range(3,len(row)):
+                    cols.append(row[i])
+                break
         return cols
 
     def labs(self):
-        df = pd.read_csv("lab.csv")
+        df = pd.read_csv("lab.csv", usecols = ['labname'])
         cols = df['labname'].unique()
         cols = cols.tolist()
         return cols
 
     def nurse_e(self):
-        df = pd.read_csv("nurseCharting.csv")
+        df = pd.read_csv("nurseCharting.csv", usecols=['nursingchartcelltypevallabel'])
         cols = df['nursingchartcelltypevallabel'].unique()
         cols = cols.tolist()
         return cols
@@ -28,7 +31,7 @@ class eicu_parser:
     # def chart_e(self, value):
 
     def medication(self):
-        df = pd.read_csv("medication.csv")
+        df = pd.read_csv("medication.csv", usecols = ['drugname'])
         cols = df['drugname'].unique()
         cols = cols.tolist()
         return cols
